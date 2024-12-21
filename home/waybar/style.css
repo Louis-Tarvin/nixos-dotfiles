@@ -1,0 +1,150 @@
+@import "tomorrow-night.css";
+
+* {
+  font-family: "FiraCode Nerd Font";
+  font-size: 13px;
+  min-height: 0;
+}
+
+#waybar {
+  background: @background;
+  color: @foreground;
+  margin: 5px 5px;
+  border-radius: 0;
+}
+
+#workspaces {
+  border-radius: 1rem;
+  margin: 5px;
+  background-color: @selection;
+  margin-left: 1rem;
+}
+
+#workspaces button {
+  color: @comment;
+  border-radius: 1rem;
+  padding: 0.2rem 0.6rem 0.2rem 0.3rem;
+}
+
+#workspaces button.active {
+  color: @aqua;
+  border-radius: 1rem;
+}
+
+#workspaces button:hover {
+  color: @blue;
+  border-radius: 1rem;
+}
+
+#window {
+  margin-left: 5px;
+}
+
+#custom-music,
+#tray,
+#backlight,
+#clock,
+#battery,
+#disk,
+#cpu,
+#memory,
+#network,
+#pulseaudio-slider,
+#custom-lock,
+#custom-power {
+  background-color: @selection;
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+}
+
+#clock {
+  color: @blue;
+  border-radius: 0px 1rem 1rem 0px;
+  margin-right: 1rem;
+}
+
+#battery {
+  color: @green;
+}
+
+#battery.charging {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+#backlight, #battery {
+    border-radius: 0;
+}
+
+#pulseaudio-slider {
+  color: @purple;
+  border-radius: 1rem 0px 0px 1rem;
+}
+
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+#pulseaudio-slider trough {
+    min-height: 8px;
+    min-width: 80px;
+    border: none;
+    background-color: @background;
+}
+#pulseaudio-slider highlight {
+    min-width: 10px;
+    border: none;
+    background-color: @purple;
+}
+
+#disk {
+  color: @red;
+  border-radius: 1rem 0px 0px 1rem;
+  margin-left: 1rem;
+}
+
+#memory {
+  color: @orange;
+  border-radius: 0px 1rem 1rem 0px;
+  margin-right: 1rem;
+}
+
+#cpu {
+  color: @green;
+}
+
+#custom-music {
+  color: @mauve;
+  border-radius: 1rem;
+}
+
+#network {
+  color: @yellow;
+}
+
+#custom-lock {
+    border-radius: 1rem 0px 0px 1rem;
+    color: @lavender;
+}
+
+#custom-power {
+    margin-right: 1rem;
+    border-radius: 1rem;
+    color: @red;
+}
+
+#tray {
+  margin-right: 1rem;
+  border-radius: 1rem;
+}

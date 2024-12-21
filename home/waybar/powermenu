@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+uptime=$(awk '{print int($1/3600) ":" int(($1%3600)/60)}' /proc/uptime)
+
+# options
+lock=""
+logout=""
+suspend="⭘"
+reboot="󰜉"
+shutdown="⏻"
+
+#MENU="$(rofi -sep "|" -dmenu -i -p 'System' -location 5 -xoffset -14 -yoffset -52 -width 10 -hide-scrollbar -line-padding 4 -padding 20 -lines 4 <<< " Lock| Logout| Reboot| Shutdown")"
+MENU="$(rofi -sep "|" -dmenu -i -p "Uptime: $uptime" -theme '.config/rofi/powermenu.rasi' -location 5 -xoffset -14 -yoffset -52 -width 10 -hide-scrollbar -line-padding 4 -padding 20 -lines 5 <<< "$lock|$logout|$suspend|$reboot|$shutdown")"
+            case "$MENU" in
+                $lock) betterlockscreen --lock blur;;
+                $logout) hyprctl dispatch exit;;
+                $suspend) systemctl suspend;;
+                $reboot) systemctl reboot;;
+                $shutdown) systemctl poweroff
+            esac
