@@ -57,11 +57,16 @@
     alacritty
     obsidian
     spotify
-    # compilers
+    aseprite
+    # dev
     clang
     rustc
     cargo
+    clippy
+    rustfmt
+    rust-analyzer
     mold
+    nodejs_23
   ];
 
   # Non-free packages
@@ -145,6 +150,12 @@
     gtk.enable = true;
   };
 
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
+
   # ZSH
   programs.zsh = {
     enable = true;
@@ -170,6 +181,7 @@
       theme = "gnzh";
     };
     initExtra = ''
+      bindkey '^n' autosuggest-accept
       if [ "$TMUX" = "" ]; then tmux new; fi
       fastfetch
     '';

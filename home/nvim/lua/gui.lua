@@ -18,7 +18,7 @@ require('lualine').setup({
       --  { 'diagnostics', sources = { 'nvim_diagnostic', 'coc' } },
     },
     -- lualine_c = {'filename'},
-    lualine_c = {'diagnostics'},
+    lualine_c = { 'diagnostics', 'lsp_progress' },
     --  lualine_c = { 'require\'lsp-status\'.status()' },
     lualine_x = { 'encoding', 'fileformat', 'filetype' },
     lualine_y = { 'progress' },

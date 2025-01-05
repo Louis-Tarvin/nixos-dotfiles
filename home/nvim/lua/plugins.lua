@@ -29,6 +29,7 @@ return require('packer').startup(function()
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
+  use 'arkav/lualine-lsp-progress'
   use { 'machakann/vim-highlightedyank' }
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -74,7 +75,7 @@ return require('packer').startup(function()
       require('commented').setup()
     end
   }
-  --  use('github/copilot.vim')
+  use('github/copilot.vim')
   --  use({
     --  "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     --  config = function()
