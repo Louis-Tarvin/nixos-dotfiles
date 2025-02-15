@@ -58,6 +58,7 @@
     obsidian
     spotify
     aseprite
+    unstable.zed-editor
     # dev
     clang
     rustc
