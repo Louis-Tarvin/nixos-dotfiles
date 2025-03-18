@@ -39,6 +39,8 @@
     zenith # better htop
     ripgrep
     fzf
+    graphviz
+    unzip
     # system
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     hyprpolkitagent # Popup for app authentication
@@ -59,6 +61,7 @@
     spotify
     aseprite
     unstable.zed-editor
+    thunderbird
     # dev
     clang
     rustc
@@ -68,6 +71,7 @@
     rust-analyzer
     mold
     nodejs_23
+    nixd
   ];
 
   # Non-free packages
@@ -87,11 +91,11 @@
       [colors.primary]
       background = '#1d1f21'
       foreground = '#c5c8c6'
-      
+
       [colors.cursor]
       text = '#1d1f21'
       cursor = '#ffffff'
-      
+
       # Normal colors
       [colors.normal]
       black   = '#1d1f21'
@@ -102,7 +106,7 @@
       magenta = '#b294bb'
       cyan    = '#70c0ba'
       white   = '#373b41'
-      
+
       # Bright colors
       [colors.bright]
       black   = '#666666'
@@ -204,23 +208,23 @@
       bind -n M-Right select-pane -R
       bind -n M-Up select-pane -U
       bind -n M-Down select-pane -D
-      
+
       bind -n M-. next-window
       bind -n M-, previous-window
-      
+
       unbind '"'
       unbind %
-      
+
       # split panes using | and -
       bind | split-window -h -c "#{pane_current_path}"
       bind - split-window -v -c "#{pane_current_path}"
-      
+
       # open in same directory
       bind v new-window -c "#{pane_current_path}"
 
       # Force true colors
       set-option -ga terminal-overrides ",xterm-256color:Tc"
-      
+
       set -g visual-activity off
       set -g visual-bell off
       set -g visual-silence off
@@ -230,11 +234,11 @@
       #  modes
       setw -g clock-mode-colour yellow
       setw -g mode-style 'fg=black bg=yellow bold'
-      
+
       # panes
       set -g pane-border-style 'fg=white'
       set -g pane-active-border-style 'fg=green'
-      
+
       # statusbar
       set -g status-position bottom
       set -g status-justify left
@@ -244,15 +248,15 @@
       set -g status-left-length 20
       set -g status-left ''\'''\'
       set -g status-right ''\'''\'
-      
+
       setw -g window-status-current-style 'fg=brightwhite bg=blue bold'
       setw -g window-status-current-format ' #I:#W#F '
-      
+
       setw -g window-status-style 'fg=blue bg=black'
       setw -g window-status-format ' #I:#W#F '
-      
+
       setw -g window-status-bell-style 'fg=yellow bg=green bold'
-      
+
       # messages
       #set -g message-style 'fg=white bg=black bold'
       #set -g message-command-style 'fg=white bg=black bold'
@@ -266,7 +270,7 @@
   programs.kitty.enable = true;
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
-    monitor = "HDMI-A-1, 2560x1440@144, 0x0, 1";
+    monitor = "DP-3, 2560x1440@144, 0x0, 1";
     "$mod" = "SUPER";
     bindm = [ # Mouse binds
       "$mod, mouse:272, movewindow"
@@ -332,6 +336,7 @@
       kb_layout = "gb";
       repeat_rate = 23;
       repeat_delay = 350;
+      scroll_factor = 0.7;
     };
     general = {
       border_size = 2;
@@ -386,7 +391,7 @@
           format = "  {free} ";
           interval = 60;
         };
-       
+
         cpu = {
           format = "  {usage}% ";
           tooltip = false;

@@ -27,6 +27,12 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  networking.interfaces = {
+    enp42s0 = {
+      useDHCP = true;
+    };
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/London";
 
